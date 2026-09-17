@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><script defer="" data-domain="copper-cindra-55.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script></head><body><div id="fp"></div>
+<a href="/about.html">about</a>
+<script>
+  // Initialize the agent at application startup.
+  // If you're using an ad blocker or Brave/Firefox, this import will not work.
+  // Please use the npm package instead: https://t.ly/ORyXk
+  const fpPromise = import('https://openfpcdn.io/fingerprintjs/v5')
+    .then(FingerprintJS => FingerprintJS.load());
+
+  (async () => {
+    // Get the visitor identifier when you need it.
+    const fp = await fpPromise
+    const result = await fp.get()
+    console.log(result.visitorId)
+    document.getElementById("fp").innerHTML = result.visitorId;
+  })()
+</script></body></html>
